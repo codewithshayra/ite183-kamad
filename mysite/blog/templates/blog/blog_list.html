@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<h2>What's new?</h2>
+
+<ul>
+    {% for list in blog_list %}
+        <li>
+            <h3><a href="{{ list.id }}">{{ list.title }}</a></h3>
+            <p>{{ list.content|truncatewords:30 }}</p>
+            <p>{{ list.publish_date|date:"F d, Y H:i" }}</p>
+            <div class="actions">
+                <a href="{{ list.id }}/update/" class="u-button">Update</a>
+                <a href="{{ list.id }}/delete/" class="d-button">Delete</a>
+            </div>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

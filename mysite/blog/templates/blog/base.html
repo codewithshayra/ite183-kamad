@@ -1,0 +1,254 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Social Media</title>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        <style>
+            * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #f4f7f9; /* Light gray for a clean background (Threads) */
+    color: #333;
+    line-height: 1.6;
+    padding: 0 1em;
+}
+
+/* Header */
+header {
+    background: black; /* Twitter blue for header */
+    color: #fff;
+    padding: 1em 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3%;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-right: auto;
+}
+
+header nav {
+    display: flex;
+    gap: 1.5em;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+header nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: width 0.3s ease;
+}
+
+header nav a:hover::after {
+    width: 100%;
+}
+
+/* Main Content */
+main {
+    max-width: 100%;
+    margin: 2em 0;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    color: #333;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+p {
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    width: 100%;
+    margin-bottom: 1.5em;
+    padding: 1.5em;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* .u-button Design (Update Button Style) */
+.u-button {
+    color: white; /* Text color */
+    background-color: black; /* Twitter blue for button */
+    border: 2px solid white; /* Slightly darker blue for border */
+    padding: 10px 20px; /* Padding for spacing */
+    font-size: 16px; /* Font size */
+    font-weight: bold; /* Bold text */
+    border-radius: 8px; /* Rounded corners */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.u-button:hover {
+    background-color: #0d95e8; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+/* .d-button Design (Red Button Style) */
+.d-button {
+    color: white; /* Text color */
+    background-color: maroon; /* Red button for highlight */
+    border: 2px solid white; /* Darker red for border */
+    padding: 12px 24px; /* Padding for spacing */
+    font-weight: bold; /* Bold text */
+    font-size: 18px; /* Larger font size */
+    font-family: 'Arial', sans-serif; /* Different font */
+    border-radius: 8px; /* More rounded corners */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Smooth transition */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.d-button:hover {
+    background-color: #e03e3e; /* Darker red on hover */
+    transform: scale(1.1); /* Slightly enlarge the button on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+}
+
+.case-even {
+    background: linear-gradient(45deg, #feda75, #fa7e1e);
+    color: #333;
+}
+
+.case-odd {
+    background: linear-gradient(45deg, #d62976, #4f5bd5);
+    color: #fff;
+}
+
+li:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: black;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1em;
+    background: black; /* Twitter blue for footer */
+    color: #fff;
+    margin-top: auto;
+    font-size: 0.9rem;
+}
+
+.blog-list p {
+    font-size: 1rem; /* Ensure the text is easily readable */
+    line-height: 1.4; /* Improve readability with better line spacing */
+}
+
+.blog-list p strong {
+    color: #007bff; /* Highlight "Published on" label in a noticeable color */
+    font-weight: 700; /* Make it bold */
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .logo-nav-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav {
+        margin-top: 1em;
+        gap: 1em;
+    }
+
+    main {
+        padding: 15px;
+    }
+}
+
+</style>
+    </head>
+    <body>
+        <header>
+            <div class="logo-nav-container">
+                <p class="logo">Social Media</p>
+                <nav>
+                    <a href="/post/">Home</a>
+                    <a href="/post/create/">New Post</a>
+                </nav>
+            </div>
+        </header>
+        <main>
+            {% block content %}
+            <h1>News Feed</h1>
+            <ul class="blog-list">
+                {% for post in posts %}
+                    <li class="case-{{ forloop.counter0|divisibleby:2|yesno:'even,odd' }}">
+                        <i class="fa-solid fa-user"></i>
+                        <h2><a href="{% url 'blog:detail' post.id  %}"> {{ post.title }} </a></h2>
+                        <p><strong>Published on:</strong> {{ post.publish_date|date:"F d, Y H:i" }}</p>
+                        <p>{{ post.content|truncatewords:20 }}</p>
+                    </li>
+                {% empty %}
+                    <p>No posts available.</p>
+                {% endfor %}
+            </ul>
+            {% endblock %}
+        </main>
+        <footer>
+            <p>SOCIAL MEDIA | 2024</p>
+        </footer>
+    </body>
+</html>

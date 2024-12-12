@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>{{ form_type }} New Post</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: #f4f7f9; /* Light gray for a clean background */
+            color: #333;
+            line-height: 1.6;
+            padding: 0 1em;
+        }
+
+        /* Header */
+        header {
+            background: black; /* Twitter blue for header */
+            color: #fff;
+            padding: 1em 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 3%;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 20px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ddd; /* Slight hover effect to mimic highlighting */
+        }
+
+        /* Content container */
+        .content-container {
+            width: 100%;
+            height: max-content;
+            max-width: 600px;
+            margin-top: 150px; /* Space below the fixed header */
+            padding: 20px;
+            margin: 0 auto;
+        }
+
+        .post-form-container {
+            width: 100%;
+            padding: 25px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .post-heading {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 25px;
+            text-align: center; /* Center the heading */
+        }
+
+        .form-fields p {
+            margin-bottom: 15px;
+            text-align: left; /* Align paragraph text to the left */
+        }
+
+        .form-fields input,
+        .form-fields textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+            text-align: left; /* Align text inside input and textarea to the left */
+        }
+
+        .form-fields input:focus,
+        .form-fields textarea:focus {
+            border-color: #0077b5; /* Focus color */
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 20px;
+            background: black; /* Black background for the button */
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+            text-align: center; /* Align button text to the left */
+        }
+
+        .submit-button:hover {
+            background: #005c8e; /* Darker blue for hover effect */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-nav-container">
+            <p class="logo">Social Media</p>
+            <nav>
+                <a href="/post/">Home</a>
+                <a href="/post/create/">New Post</a>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="content-container">
+        <div class="post-form-container">
+            <h1 class="post-heading">{{ form_type }} A New Post</h1>
+            <form method="POST" action=".">
+                {% csrf_token %}
+                <div class="form-fields">
+                    {{ form.as_p }}
+                </div>
+                <button type="submit" class="submit-button">{{ form_type }} Post</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
